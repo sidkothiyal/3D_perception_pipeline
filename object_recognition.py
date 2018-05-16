@@ -178,7 +178,7 @@ def pcl_callback(pcl_msg):
 
 # function to load parameters and request PickPlace service
 def pr2_mover(object_list):
-    world = 3
+    world = 1
     dropbox = rospy.get_param('/dropbox')
     box = {}
     for i, db in enumerate(dropbox):
@@ -269,7 +269,7 @@ if __name__ == '__main__':
     detected_objects_pub = rospy.Publisher("/detected_objects", DetectedObjectsArray, queue_size=1)
 
     # TODO: Load Model From disk
-    model = pickle.load(open('model.sav', 'rb'))
+    model = pickle.load(open('model/model.sav', 'rb'))
     clf = model['classifier']
     encoder = LabelEncoder()
     encoder.classes_ = model['classes']
